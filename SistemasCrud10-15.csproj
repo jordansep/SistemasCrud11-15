@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modulos\crud.cs" />
+    <Compile Include="Modulos\archiveManipulation.cs" />
     <Compile Include="Modulos\path.cs" />
     <Compile Include="Modulos\validaciones.cs" />
     <Compile Include="Program.cs" />

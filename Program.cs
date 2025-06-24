@@ -13,10 +13,11 @@ namespace SistemasCrud10_15
         static void Main(string[] args)
         {
             Ruta.setPathFolder("Act11");
-            Console.WriteLine(Ruta.origenPath);
-            Console.WriteLine(Ruta.pathFolder);
             Ruta.setPathFile("registrosuno", "txt");
-            Console.WriteLine(Ruta.pathFile);
+            archiveManipulation a = new archiveManipulation();
+            a.readLines();
+            string[] lineas = archiveManipulation.getLines();
+            a.ModLine(Validaciones.ValidarEntero("Que linea desea modificar?;"));
         }
     }
 }
