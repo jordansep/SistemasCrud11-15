@@ -17,7 +17,7 @@ namespace SistemasCrud10_15
             archiveManipulation a = new archiveManipulation();
             a.readLines();
             string[] lineas = archiveManipulation.getLines();
-            a.ModLine(Validaciones.ValidarEntero("Que linea desea modificar?;"));
+            a.deleteID(Validaciones.ValidarEntero("Que linea desea Eliminar?"));//
         }
     }
 }

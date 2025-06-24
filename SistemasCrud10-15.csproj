@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulos\archiveManHerency\registroUsuarios.cs" />
     <Compile Include="Modulos\archiveManipulation.cs" />
     <Compile Include="Modulos\path.cs" />
     <Compile Include="Modulos\validaciones.cs" />
@@ -51,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ejercicios\Ejercicio11\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

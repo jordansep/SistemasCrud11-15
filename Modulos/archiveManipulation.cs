@@ -11,15 +11,13 @@ namespace SistemasCrud10_15.Modulos
     class archiveManipulation
     {
         private int id;
-        private string name;
         private static string pathFile = Ruta.pathFile;
         private static string pathFolder = Ruta.pathFolder;
         private static string[] lineas = File.ReadAllLines(Ruta.pathFile);
-        private static List<string> listLines = new List<string>();
+        private static List<string> listLines = new List<string>(lineas.ToList());
         // Constructor
         public archiveManipulation() { 
             this.id = 1;
-            this.name = string.Empty;
         }
 
         // Retorna un array con los strings contenidos en el archivo
@@ -59,7 +57,6 @@ namespace SistemasCrud10_15.Modulos
             for (int i = 0; i < lineas.Length; i++)
             {
                 string[] separateLine = lineas[i].Split(',');
-                listLines.Add(lineas[i]);
                 if(lineToModify == i)
                 {
                     Console.WriteLine("Que dato desea modificar?");
@@ -81,9 +78,31 @@ namespace SistemasCrud10_15.Modulos
             }
             File.WriteAllLines(pathFile,lineas);
         }
+
+        // Elimina la linea seleccionada por el usuario en funcion de la ID.
+        public void deleteID(int lineToDelete)
+        {
+            for(int i = 1; i< lineas.Length; i++)
+            {
+                string[] searchID = lineas[i].Split(',');
+                int.TryParse(searchID[0], out int foundID);
+                if (foundID == lineToDelete)
+                {
+                    listLines.RemoveAt(i);
+                }
+            }
+            lineas = listLines.ToArray();
+            File.WriteAllLines(pathFile,lineas);
+        }
+
+
+        // Nombrar archivos.
         // TODO: Registrar linea por linea --
         // TODO: Leer Archivo --
         // TODO: NombrarArchivos
-        // TODO: Modificacion de datos
+        // TODO: Modificacion de datos --
+        // TODO: Eliminar por ID --
+        // TODO: Agregar datos
+        // TODO: Sistema ID Unica.
     }
 }
