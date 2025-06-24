@@ -4,19 +4,31 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace SistemasCrud10_15.Modulos.archiveManHerency
 {
     class registroUsuarios:archiveManipulation
     {
-        private string nombre;
-        private string email;
-        private int edad;
+        private static string nombre;
+        private static string email;
+        private static int edad;
         public registroUsuarios()
         {
-            this.nombre = string.Empty;
-            this.email = string.Empty;
-            this.edad = 0;
+            nombre = string.Empty;
+            email = string.Empty;
+            edad = 0;
         }
+        public void registrarUsuario()
+        {
+            id = UniqueID();
+            nombre = Validaciones.ValidarTexto("Ingrese el nombre de usuario");
+            email = Validaciones.ValidarTexto("Ingrese el Correo Electronico");
+            edad = Validaciones.ValidarEntero("Ingrese la edad del usuario");
+            string registrar = string.Join(",", id, nombre, email, edad);
+            listLines.Add(registrar);
+            File.WriteAllLines(pathFile, listLines.ToArray());
+        }
+        
     }
 }

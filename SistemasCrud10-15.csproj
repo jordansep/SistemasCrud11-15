@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ejercicios\Ejercicio11\ejercicioDoce.cs" />
+    <Compile Include="Ejercicios\Ejercicio11\ejercicioOnce.cs" />
+    <Compile Include="Modulos\archiveManHerency\listaTareas.cs" />
     <Compile Include="Modulos\archiveManHerency\registroUsuarios.cs" />
     <Compile Include="Modulos\archiveManipulation.cs" />
     <Compile Include="Modulos\path.cs" />
@@ -53,8 +56,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ejercicios\Ejercicio11\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

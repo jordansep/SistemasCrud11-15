@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using SistemasCrud10_15.Ejercicios.Ejercicio11;
 using SistemasCrud10_15.Modulos;
+using SistemasCrud10_15.Modulos.archiveManHerency;
 
 namespace SistemasCrud10_15
 {
@@ -12,12 +15,7 @@ namespace SistemasCrud10_15
     {
         static void Main(string[] args)
         {
-            Ruta.setPathFolder("Act11");
-            Ruta.setPathFile("registrosuno", "txt");
-            archiveManipulation a = new archiveManipulation();
-            a.readLines();
-            string[] lineas = archiveManipulation.getLines();
-            a.deleteID(Validaciones.ValidarEntero("Que linea desea Eliminar?"));//
+            ejercicioOnce.Ejecutar();
         }
     }
 }

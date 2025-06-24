@@ -5,19 +5,20 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using SistemasCrud10_15.Modulos.archiveManHerency;
 
 namespace SistemasCrud10_15.Modulos
 {
     class archiveManipulation
     {
-        private int id;
-        private static string pathFile = Ruta.pathFile;
-        private static string pathFolder = Ruta.pathFolder;
-        private static string[] lineas = File.ReadAllLines(Ruta.pathFile);
-        private static List<string> listLines = new List<string>(lineas.ToList());
+        protected static int id;
+        protected static string pathFile = Ruta.pathFile;
+        protected static string pathFolder = Ruta.pathFolder;
+        protected static string[] lineas = File.ReadAllLines(Ruta.pathFile);
+        protected static List<string> listLines = new List<string>(lineas.ToList());
         // Constructor
         public archiveManipulation() { 
-            this.id = 1;
+            id = UniqueID();
         }
 
         // Retorna un array con los strings contenidos en el archivo
@@ -27,7 +28,7 @@ namespace SistemasCrud10_15.Modulos
             return lines;
         }
         // Lee los strings de un archivo.
-        public void readLines()
+        public void ReadLines()
         {
             if(lineas.Length != 0)
             {
@@ -52,22 +53,24 @@ namespace SistemasCrud10_15.Modulos
 
         // Modificacion de datos segun la linea elegida por el usuario.
         public void ModLine(int lineToModify) {
-            lineToModify -= 1;
             int cantDatos;
             for (int i = 0; i < lineas.Length; i++)
             {
                 string[] separateLine = lineas[i].Split(',');
-                if(lineToModify == i)
+                int.TryParse(separateLine[0], out int foundID);
+                if(lineToModify == foundID)
                 {
                     Console.WriteLine("Que dato desea modificar?");
-                    Console.WriteLine("1) Nombre");
-                    Console.WriteLine("2) Descripcion");
-                    int option = Validaciones.ValidarEntero("Ingrese una opcion: ");
+                    for (int j = 1; j < separateLine.Length; j++)
+                    {
+                        Console.WriteLine($"{j}) {separateLine[j]}");
+                    }
+                    int option = Validaciones.ValidarEntero("Ingrese una opcion");
                     // Segun la opcion elegida, entrara a ese dato especificado y lo modificara
                     while (option <= 0 || option > separateLine.Count())
                     {
                         Console.WriteLine($"Opción inválida. Debe estar entre 1 y {separateLine.Count() - 1}.");
-                        option = Validaciones.ValidarEntero("Ingrese una opción válida: ");
+                        option = Validaciones.ValidarEntero("Ingrese una opción válida");
                     }
                     separateLine[option] = Validaciones.ValidarTexto("Ingrese el nuevo valor");
 
@@ -80,10 +83,11 @@ namespace SistemasCrud10_15.Modulos
         }
 
         // Elimina la linea seleccionada por el usuario en funcion de la ID.
-        public void deleteID(int lineToDelete)
+        public void DeleteID(int lineToDelete)
         {
             for(int i = 1; i< lineas.Length; i++)
             {
+                // Buscar por la ID coincidente sin importar su posicion en el archivo
                 string[] searchID = lineas[i].Split(',');
                 int.TryParse(searchID[0], out int foundID);
                 if (foundID == lineToDelete)
@@ -94,7 +98,45 @@ namespace SistemasCrud10_15.Modulos
             lineas = listLines.ToArray();
             File.WriteAllLines(pathFile,lineas);
         }
-
+        // Verifica y crea que cada ID sea unica.
+        protected static int UniqueID()
+        {
+            int maxID = 0;
+            foreach (var linea in lineas)
+            {
+                var partes = linea.Split(',');
+                if (int.TryParse(partes[0], out int existentID))
+                {
+                    if (existentID > maxID)
+                        maxID = existentID;
+                }
+            }
+            return maxID + 1;
+        }
+        // Mostrar las lineas en consola 
+        public void ShowLines()
+        {
+            foreach (string line in lineas)
+            {
+                string[] lines = line.Split(',');
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        Console.Write($"{lines[i]})");
+                    }
+                    else if (i == lines.Length - 1)    
+                    {
+                        Console.Write($" {lines[i]}");
+                    }
+                    else
+                    {
+                        Console.Write($" {lines[i]} -");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
 
         // Nombrar archivos.
         // TODO: Registrar linea por linea --
@@ -102,7 +144,7 @@ namespace SistemasCrud10_15.Modulos
         // TODO: NombrarArchivos
         // TODO: Modificacion de datos --
         // TODO: Eliminar por ID --
-        // TODO: Agregar datos
+        // TODO: Agregar datos --
         // TODO: Sistema ID Unica.
     }
 }

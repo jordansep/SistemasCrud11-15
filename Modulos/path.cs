@@ -7,7 +7,7 @@ using System.IO;
 
 namespace SistemasCrud10_15.Modulos
 {
-    class Ruta
+    public class Ruta
     {
 
         // Por defecto origenPath es el Directorio Actual

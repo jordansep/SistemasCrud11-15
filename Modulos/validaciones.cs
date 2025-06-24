@@ -21,7 +21,6 @@ namespace SistemasCrud10_15.Modulos
                     respuesta = Console.ReadLine();
                     if (string.IsNullOrEmpty(respuesta)) throw new ArgumentNullException($"El texto no puede ser nulo");
                     if (string.IsNullOrWhiteSpace(respuesta)) throw new ArgumentNullException($"El texto no puede ser un espacio");
-                    if (long.TryParse(respuesta, out long a)) throw new FormatException($"Formato incorrecto, tiene que ser una cadena de texto");
                     esTexto = true;
                 }
                 catch (ArgumentNullException)
