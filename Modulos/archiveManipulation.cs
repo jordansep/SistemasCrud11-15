@@ -85,7 +85,7 @@ namespace SistemasCrud10_15.Modulos
         // Elimina la linea seleccionada por el usuario en funcion de la ID.
         public void DeleteID(int lineToDelete)
         {
-            for(int i = 1; i< lineas.Length; i++)
+            for(int i = 0; i< lineas.Length; i++)
             {
                 // Buscar por la ID coincidente sin importar su posicion en el archivo
                 string[] searchID = lineas[i].Split(',');

@@ -35,13 +35,12 @@ namespace SistemasCrud10_15.Modulos.archiveManHerency
                 int.TryParse(buscarEstado[0], out int id);
                 if (modificarEstado == id)
                 {
-                    string cambiarEstado = buscarEstado[2];
                     if (buscarEstado[2] == realized)
                     {
-                        cambiarEstado = unrealized;
+                        buscarEstado[2] = unrealized;
                     }else if (buscarEstado[2] == unrealized)
                     {
-                        cambiarEstado = realized;
+                        buscarEstado[2] = realized;
                     }
                 }
                 lineas[i] = string.Join (",", buscarEstado);

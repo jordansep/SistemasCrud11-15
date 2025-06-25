@@ -15,7 +15,7 @@ namespace SistemasCrud10_15
     {
         static void Main(string[] args)
         {
-            ejercicioOnce.Ejecutar();
+            ejercicioDoce.Ejecutar();
         }
     }
 }

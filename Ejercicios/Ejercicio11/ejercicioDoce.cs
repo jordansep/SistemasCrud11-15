@@ -10,11 +10,11 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
 {
     public class ejercicioDoce
     {
-        public void Ejecutar()
+        public static void Ejecutar()
         {
             Ruta.setPathFolder("Tareas");
             Ruta.setPathFile("ListaTareas", "txt");
-            registroUsuarios b = new registroUsuarios();
+            listaTareas b = new listaTareas();
             b.ShowLines();
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("1) Agregar Tarea");
@@ -23,9 +23,9 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             int opciones = Validaciones.ValidarEntero("Ingrese una opcion");
             switch (opciones)
             {
-                case 1: b.registrarUsuario(); break;
-                case 2: b.ModLine(Validaciones.ValidarEntero("Que usuario desea modificar?")); break;
-                case 3: b.DeleteID(Validaciones.ValidarEntero("Que usuario desea eliminar?")); break;
+                case 1: b.agregarTarea(); break;
+                case 2: b.ModificarEstado(Validaciones.ValidarEntero("A que tarea desea cambiarle el estado de completitud?")); break;
+                case 3: b.DeleteID(Validaciones.ValidarEntero("Que tarea desea eliminar?")); break;
             }
         }
     }
