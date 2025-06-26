@@ -21,6 +21,8 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Console.WriteLine("2) Actualizar estado de una tarea");
             Console.WriteLine("3) Eliminar tarea por ID");
             int opciones = Validaciones.ValidarEntero("Ingrese una opcion");
+            Console.WriteLine("----------------------------------------------------");
+
             switch (opciones)
             {
                 case 1: b.agregarTarea(); break;

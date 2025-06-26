@@ -21,6 +21,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Console.WriteLine("2) Modificar producto");
             Console.WriteLine("3) Eliminar producto");
             int option = Validaciones.ValidarEntero("Ingrese una opcion");
+            Console.WriteLine("--------------------------------------------------");
             switch (option)
             {
                 case 1: InventarioProductos.agregarProducto(); break;

@@ -101,18 +101,23 @@ namespace SistemasCrud10_15.Modulos
         // Verifica y crea que cada ID sea unica.
         protected static int UniqueID()
         {
-            int maxID = 0;
+            HashSet<int> existingIDs = new HashSet<int>();
             foreach (var linea in lineas)
             {
                 var partes = linea.Split(',');
                 if (int.TryParse(partes[0], out int existentID))
                 {
-                    if (existentID > maxID)
-                        maxID = existentID;
+                    existingIDs.Add(existentID);
                 }
             }
-            return maxID + 1;
+            int newID = 1;
+            while (existingIDs.Contains(newID))
+            {
+                newID++;
+            }
+            return newID;
         }
+
         // Mostrar las lineas en consola 
         public void ShowLines()
         {
@@ -138,13 +143,12 @@ namespace SistemasCrud10_15.Modulos
             }
         }
 
-        // Nombrar archivos.
         // TODO: Registrar linea por linea --
         // TODO: Leer Archivo --
         // TODO: NombrarArchivos
         // TODO: Modificacion de datos --
         // TODO: Eliminar por ID --
         // TODO: Agregar datos --
-        // TODO: Sistema ID Unica.
+        // TODO: Sistema ID Unica. --
     }
 }
