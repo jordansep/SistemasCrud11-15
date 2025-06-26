@@ -7,7 +7,7 @@ using System.IO;
 
 namespace SistemasCrud10_15.Modulos
 {
-    class Ruta
+    public class Ruta
     {
 
         // Por defecto origenPath es el Directorio Actual
@@ -15,24 +15,31 @@ namespace SistemasCrud10_15.Modulos
         public static string pathFolder;
         public static string pathFile;
 
-        public static string setOrigenPath()
-        { // Se usa para settear un origenPath custom.
+        // Se usa para settear un origenPath custom.
             // Recordemos que por defecto es el Directorio Actual.
+        public static string setOrigenPath()
+        {
             string getPath = Validaciones.ValidarDirectorio();
             origenPath = getPath;
             return getPath;
         }
+                // Guardamos la ruta de la carpeta en pathFolder.
         public static string setPathFolder(string folderName) { 
             // Setteamos el pathFolder segun un nombre dado y el origenPath.
             pathFolder = Path.Combine(origenPath, folderName);
+            // Si no existe lo creamos
             if (!Directory.Exists(pathFolder)) { 
                 Directory.CreateDirectory(pathFolder);
             }
             return pathFolder;
         }
-        public static string setPathFile(string fileName, string extencion) { 
             // Setteamos un pathFile segun el nombre dado y el pathFolder
+        public static string setPathFile(string fileName, string extencion) { 
+            // Concatenamos para obtener la ruta.
             string setFile = Path.Combine(pathFolder, fileName+"."+extencion);
+             // Guardamos la ruta del archivo en pathFile.
+            pathFile = setFile;
+            // Si no existe la creamos.
             if (!File.Exists(setFile)) { File.Create(setFile).Close(); }
             return setFile;
         }

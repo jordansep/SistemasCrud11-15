@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using SistemasCrud10_15.Ejercicios.Ejercicio11;
 using SistemasCrud10_15.Modulos;
+using SistemasCrud10_15.Modulos.archiveManHerency;
 
 namespace SistemasCrud10_15
 {
@@ -12,11 +15,9 @@ namespace SistemasCrud10_15
     {
         static void Main(string[] args)
         {
-            Ruta.setPathFolder("Act11");
-            Console.WriteLine(Ruta.origenPath);
-            Console.WriteLine(Ruta.pathFolder);
-            Ruta.setPathFile("registrosuno", "txt");
-            Console.WriteLine(Ruta.pathFile);
+            // ejercicioOnce.Ejecutar();
+            // ejercicioDoce.Ejecutar();
+            ejercicioTrece.Ejecutar();
         }
     }
 }
