@@ -12,7 +12,7 @@ namespace SistemasCrud10_15.Modulos
     class archiveManipulation
     {
         protected static int id;
-        protected static string pathFile = Ruta.pathFile;
+        protected static string pathFile => Ruta.pathFile;
         protected static string pathFolder = Ruta.pathFolder;
         protected static string[] lineas = File.ReadAllLines(Ruta.pathFile);
         protected static List<string> listLines = new List<string>(lineas.ToList());

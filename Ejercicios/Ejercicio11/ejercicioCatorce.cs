@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Text;
+using System.Threading.Tasks;
+using SistemasCrud10_15.Modulos;
+using SistemasCrud10_15.Modulos.archiveManHerency;
+
+namespace SistemasCrud10_15.Ejercicios.Ejercicio11
+{
+    class ejercicioCatorce
+    {
+        public static void Ejecutar()
+        {
+            Ruta.setPathFolder("Asistencia");
+            Ruta.setPathFile(DateTime.UtcNow.ToString("yyyy-MM-dd"), "txt");
+
+            registroAsistencia b = new registroAsistencia();
+            Console.WriteLine("1) Registrar Alumno");
+            Console.WriteLine($"2) Tomar asistencia del dia {DateTime.UtcNow.ToString("yyyy-MM-dd")}");
+            Console.WriteLine("3) Borrar alumno por ID");
+            int opciones = Validaciones.ValidarEntero("Ingrese una opcion");
+            switch (opciones)
+            {
+                case 1:
+                    Ruta.setPathFile("Alumnos", "txt");
+                    b.registrarAlumno();
+                    break;
+                case 2: b.registrarAsistencia(); break;
+                case 3: b.DeleteID(Validaciones.ValidarEntero("Que tarea desea eliminar?")); break;
+            }
+
+        }
+    }
+}
