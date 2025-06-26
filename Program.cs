@@ -17,7 +17,8 @@ namespace SistemasCrud10_15
         {
             // ejercicioOnce.Ejecutar();
             // ejercicioDoce.Ejecutar();
-            ejercicioTrece.Ejecutar();
+            // ejercicioTrece.Ejecutar();
+            ejercicioCatorce.Ejecutar();
         }
     }
 }

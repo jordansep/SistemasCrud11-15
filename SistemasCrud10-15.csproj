@@ -43,11 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ejercicios\Ejercicio11\ejercicioCatorce.cs" />
     <Compile Include="Ejercicios\Ejercicio11\ejercicioDoce.cs" />
     <Compile Include="Ejercicios\Ejercicio11\ejercicioOnce.cs" />
     <Compile Include="Ejercicios\Ejercicio11\ejercicioTrece.cs" />
     <Compile Include="Modulos\archiveManHerency\InventarioProductos.cs" />
     <Compile Include="Modulos\archiveManHerency\listaTareas.cs" />
+    <Compile Include="Modulos\archiveManHerency\registroAsistencia.cs" />
+    <Compile Include="Modulos\archiveManHerency\registroNotas.cs" />
     <Compile Include="Modulos\archiveManHerency\registroUsuarios.cs" />
     <Compile Include="Modulos\archiveManipulation.cs" />
     <Compile Include="Modulos\path.cs" />
