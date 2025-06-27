@@ -12,8 +12,8 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
     {
         public static void Ejecutar()
         {
-            Ruta.setPathFolder("Tareas");
-            Ruta.setPathFile("ListaTareas", "txt");
+            Ruta.SetPathFolder("Tareas");
+            Ruta.SetPathFile("ListaTareas", "txt");
             listaTareas b = new listaTareas();
             b.ShowLines(Ruta.pathFile);
             Console.WriteLine("----------------------------------------------------");

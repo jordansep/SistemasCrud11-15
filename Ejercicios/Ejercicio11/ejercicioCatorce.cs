@@ -13,8 +13,8 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
     {
         public static void Ejecutar()
         {
-            Ruta.setPathFolder("Asistencia");
-            Ruta.setPathFile(DateTime.UtcNow.ToString("yyyy-MM-dd"), "txt");
+            Ruta.SetPathFolder("Asistencia");
+            Ruta.SetPathFile(DateTime.UtcNow.ToString("yyyy-MM-dd"), "txt");
             registroAsistencia b = new registroAsistencia();
             archiveManipulation cargarBD = new archiveManipulation(true);
             b.ShowLines(Ruta.pathDB);
@@ -25,7 +25,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             switch (opciones)
             {
                 case 1:
-                    Ruta.setPathFile("Alumnos", "txt");
+                    Ruta.SetPathFile("Alumnos", "txt");
                     b.registrarAlumno();
                     break;
                 case 2: b.registrarAsistencia(); break;
