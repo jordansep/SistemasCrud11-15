@@ -15,7 +15,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Ruta.setPathFolder("Tareas");
             Ruta.setPathFile("ListaTareas", "txt");
             listaTareas b = new listaTareas();
-            b.ShowLines();
+            b.ShowLines(Ruta.pathFile);
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("1) Agregar Tarea");
             Console.WriteLine("2) Actualizar estado de una tarea");

@@ -15,7 +15,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Ruta.setPathFolder("usuarios");
             Ruta.setPathFile("usuarios", "txt");
             registroUsuarios b = new registroUsuarios();
-            b.ShowLines();
+            b.ShowLines(Ruta.pathFile);
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("1) Registrar usuario");
             Console.WriteLine("2) Actualizar/Modificar usuario");

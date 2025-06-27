@@ -15,7 +15,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Ruta.setPathFolder("Inventario Productos");
             Ruta.setPathFile("Inventarioproductos", "csv");
             InventarioProductos a = new InventarioProductos();
-            a.ShowLines();
+            a.ShowLines(Ruta.pathFile);
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("1) Agregar Producto");
             Console.WriteLine("2) Modificar producto");

@@ -14,6 +14,7 @@ namespace SistemasCrud10_15.Modulos
         public static string origenPath = Directory.GetCurrentDirectory();
         public static string pathFolder;
         public static string pathFile;
+        public static string pathDB;
 
         // Se usa para settear un origenPath custom.
             // Recordemos que por defecto es el Directorio Actual.
@@ -39,6 +40,16 @@ namespace SistemasCrud10_15.Modulos
             string setFile = Path.Combine(pathFolder, fileName+"."+extencion);
              // Guardamos la ruta del archivo en pathFile.
             pathFile = setFile;
+            // Si no existe la creamos.
+            if (!File.Exists(setFile)) { File.Create(setFile).Close(); }
+            return setFile;
+        }
+        public static string setPathBD(string nameBD, string extencion)
+        {
+            // Concatenamos para obtener la ruta.
+            string setFile = Path.Combine(pathFolder, nameBD+ "." + extencion);
+            // Guardamos la ruta del archivo en pathFile.
+            pathDB = setFile;
             // Si no existe la creamos.
             if (!File.Exists(setFile)) { File.Create(setFile).Close(); }
             return setFile;

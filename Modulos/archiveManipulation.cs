@@ -14,17 +14,21 @@ namespace SistemasCrud10_15.Modulos
         protected static int id;
         protected static string pathFile => Ruta.pathFile;
         protected static string pathFolder = Ruta.pathFolder;
-        protected static string[] lineas = File.ReadAllLines(Ruta.pathFile);
-        protected static List<string> listLines = new List<string>(lineas.ToList());
+        protected static string[] lineas;
+        protected static List<string> listLines = new List<string>();
+        protected static string[] lineasBD;
         // Constructor
-        public archiveManipulation() { 
+        public archiveManipulation(bool cargarLineasBD = false) {
+            if(cargarLineasBD) lineasBD = File.ReadAllLines(Ruta.pathDB);
+            lineas = File.ReadAllLines(Ruta.pathFile);
+            listLines = lineas.ToList();
             id = UniqueID();
         }
 
         // Retorna un array con los strings contenidos en el archivo
-        public static string[] getLines()
+        public static string[] getLines(string linesOf)
         {
-            string[] lines = File.ReadAllLines(Ruta.pathFile);
+            string[] lines = File.ReadAllLines(linesOf);
             return lines;
         }
         // Lee los strings de un archivo.
@@ -83,9 +87,11 @@ namespace SistemasCrud10_15.Modulos
         }
 
         // Elimina la linea seleccionada por el usuario en funcion de la ID.
-        public void DeleteID(int lineToDelete)
+        public void DeleteID(int lineToDelete, bool deleteOnFile = true)
         {
-            for(int i = 0; i< lineas.Length; i++)
+            if (deleteOnFile) listLines = lineas.ToList();
+            else { listLines = lineasBD.ToList(); }
+            for (int i = 0; i< lineas.Length; i++)
             {
                 // Buscar por la ID coincidente sin importar su posicion en el archivo
                 string[] searchID = lineas[i].Split(',');
@@ -95,12 +101,19 @@ namespace SistemasCrud10_15.Modulos
                     listLines.RemoveAt(i);
                 }
             }
-            lineas = listLines.ToArray();
-            File.WriteAllLines(pathFile,lineas);
+            if (deleteOnFile){
+                lineas = listLines.ToArray();
+                File.WriteAllLines(pathFile, lineas);
+            }
+            else {
+                lineasBD = listLines.ToArray();
+                File.WriteAllLines(Ruta.pathDB, lineasBD);
+            }
         }
         // Verifica y crea que cada ID sea unica.
         protected static int UniqueID()
         {
+
             HashSet<int> existingIDs = new HashSet<int>();
             foreach (var linea in lineas)
             {
@@ -119,8 +132,9 @@ namespace SistemasCrud10_15.Modulos
         }
 
         // Mostrar las lineas en consola 
-        public void ShowLines()
+        public void ShowLines(string ofArchive)
         {
+            lineas = getLines(ofArchive);
             foreach (string line in lineas)
             {
                 string[] lines = line.Split(',');
