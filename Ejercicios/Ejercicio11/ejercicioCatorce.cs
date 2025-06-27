@@ -15,8 +15,9 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
         {
             Ruta.setPathFolder("Asistencia");
             Ruta.setPathFile(DateTime.UtcNow.ToString("yyyy-MM-dd"), "txt");
-
             registroAsistencia b = new registroAsistencia();
+            archiveManipulation cargarBD = new archiveManipulation(true);
+            b.ShowLines(Ruta.pathDB);
             Console.WriteLine("1) Registrar Alumno");
             Console.WriteLine($"2) Tomar asistencia del dia {DateTime.UtcNow.ToString("yyyy-MM-dd")}");
             Console.WriteLine("3) Borrar alumno por ID");
@@ -28,7 +29,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
                     b.registrarAlumno();
                     break;
                 case 2: b.registrarAsistencia(); break;
-                case 3: b.DeleteID(Validaciones.ValidarEntero("Que tarea desea eliminar?")); break;
+                case 3: b.DeleteID(Validaciones.ValidarEntero("Que tarea desea eliminar?"),false); break;
             }
 
         }
