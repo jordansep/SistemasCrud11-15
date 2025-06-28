@@ -16,14 +16,14 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Ruta.SetPathFile("notas", "txt");
             RegistroNotas a = new RegistroNotas();
             a.ShowLines(Ruta.pathFile);
-            Console.WriteLine("--------------------------------------------------");
-            Console.WriteLine("1) Agregar Alumno");
-            Console.WriteLine("2) Modificar registro");
-            Console.WriteLine("3) Promedios alumnos");
-            Console.WriteLine("4) Eliminar alumno");
-
+            Formato.Separador();
+            Formato.EscribirLinea("1) Registrar notas de alumnos");
+            Formato.EscribirLinea("2) Modificar nota de alumno");
+            Formato.EscribirLinea("3) Calcular promedio de alumnos");
+            Formato.EscribirLinea("4) Eliminar alumno por ID");
+            Formato.Separador();
             int option = Validaciones.ValidarEntero("Ingrese una opcion");
-            Console.WriteLine("--------------------------------------------------");
+            Formato.Separador();
             int max = archiveManipulation.getLines(Ruta.pathFile).Length;
             switch (option)
             {

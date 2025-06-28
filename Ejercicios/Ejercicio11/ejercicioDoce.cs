@@ -16,12 +16,13 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Ruta.SetPathFile("ListaTareas", "txt");
             listaTareas b = new listaTareas();
             b.ShowLines(Ruta.pathFile);
-            Console.WriteLine("----------------------------------------------------");
-            Console.WriteLine("1) Agregar Tarea");
-            Console.WriteLine("2) Actualizar estado de una tarea");
-            Console.WriteLine("3) Eliminar tarea por ID");
+            Formato.Separador();
+            Formato.EscribirLinea("1) Agregar tarea nueva");
+            Formato.EscribirLinea("2) Modificar estado de tarea");
+            Formato.EscribirLinea("3) Eliminar tarea por ID");
+            Formato.Separador();
             int opciones = Validaciones.ValidarEntero("Ingrese una opcion");
-            Console.WriteLine("----------------------------------------------------");
+            Formato.Separador();
             int max = archiveManipulation.getLines(Ruta.pathFile).Length;
             switch (opciones)
             {

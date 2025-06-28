@@ -15,12 +15,22 @@ namespace SistemasCrud10_15
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("1) Registro de Usuarios Basico");
-            Console.WriteLine("2) Registro de Tareas");
-            Console.WriteLine("3) Registro de inventario de productos");
-            Console.WriteLine("4) Registro de Asistencia");
-            Console.WriteLine("5) Registro de Notas con Promedio");
+            string[] opcs =
+            {
+                "1) Registro de Usuarios Basico",
+                "2) Registro de Tareas",
+                "3) Registro de inventario de productos",
+                "4) Registro de Asistencia",
+                "5) Registro de Notas con Promedio"
+
+            };
+            Formato.Separador();
+            foreach (string o in opcs) { 
+                Formato.EscribirLinea(o);
+                Formato.Separador();
+            }
             int opciones = Validaciones.ValidarEntero(1,5,"Elija una opcion");
+            Formato.Separador();
             switch (opciones)
             {
                 case 1: ejercicioOnce.Ejecutar();break;
