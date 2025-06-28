@@ -12,7 +12,6 @@ namespace SistemasCrud10_15.Modulos.archiveManHerency
         protected static string pathBD = Ruta.setPathBD("Alumnos", "txt");
         private string name;
         private string state;
-        private List<string> list;
         public registroAsistencia(){
             name = string.Empty;
             state = "Presente";

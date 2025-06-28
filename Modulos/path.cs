@@ -25,7 +25,7 @@ namespace SistemasCrud10_15.Modulos
             return getPath;
         }
                 // Guardamos la ruta de la carpeta en pathFolder.
-        public static string setPathFolder(string folderName) { 
+        public static string SetPathFolder(string folderName) { 
             // Setteamos el pathFolder segun un nombre dado y el origenPath.
             pathFolder = Path.Combine(origenPath, folderName);
             // Si no existe lo creamos
@@ -35,7 +35,7 @@ namespace SistemasCrud10_15.Modulos
             return pathFolder;
         }
             // Setteamos un pathFile segun el nombre dado y el pathFolder
-        public static string setPathFile(string fileName, string extencion) { 
+        public static string SetPathFile(string fileName, string extencion) { 
             // Concatenamos para obtener la ruta.
             string setFile = Path.Combine(pathFolder, fileName+"."+extencion);
              // Guardamos la ruta del archivo en pathFile.

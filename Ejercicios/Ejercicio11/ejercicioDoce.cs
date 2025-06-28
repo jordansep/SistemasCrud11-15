@@ -12,8 +12,8 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
     {
         public static void Ejecutar()
         {
-            Ruta.setPathFolder("Tareas");
-            Ruta.setPathFile("ListaTareas", "txt");
+            Ruta.SetPathFolder("Tareas");
+            Ruta.SetPathFile("ListaTareas", "txt");
             listaTareas b = new listaTareas();
             b.ShowLines(Ruta.pathFile);
             Console.WriteLine("----------------------------------------------------");
@@ -22,12 +22,12 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Console.WriteLine("3) Eliminar tarea por ID");
             int opciones = Validaciones.ValidarEntero("Ingrese una opcion");
             Console.WriteLine("----------------------------------------------------");
-
+            int max = archiveManipulation.getLines(Ruta.pathFile).Length;
             switch (opciones)
             {
                 case 1: b.agregarTarea(); break;
-                case 2: b.ModificarEstado(Validaciones.ValidarEntero("A que tarea desea cambiarle el estado de completitud?")); break;
-                case 3: b.DeleteID(Validaciones.ValidarEntero("Que tarea desea eliminar?")); break;
+                case 2: b.ModificarEstado(Validaciones.ValidarEntero(1, max, "A que tarea desea cambiarle el estado de completitud?")); break;
+                case 3: b.DeleteID(Validaciones.ValidarEntero(1,max,"Que tarea desea eliminar?")); break;
             }
         }
     }
