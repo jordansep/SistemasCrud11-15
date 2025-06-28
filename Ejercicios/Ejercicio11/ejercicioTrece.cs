@@ -14,7 +14,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
         {
             Ruta.SetPathFolder("Inventario Productos");
             Ruta.SetPathFile("Inventarioproductos", "csv");
-            InventarioProductos a = new InventarioProductos();
+            RegistroNotas a = new RegistroNotas();
             a.ShowLines(Ruta.pathFile);
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("1) Agregar Producto");
@@ -22,11 +22,12 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Console.WriteLine("3) Eliminar producto");
             int option = Validaciones.ValidarEntero("Ingrese una opcion");
             Console.WriteLine("--------------------------------------------------");
+            int max = archiveManipulation.getLines(Ruta.pathFile).Length;
             switch (option)
             {
-                case 1: InventarioProductos.agregarProducto(); break;
-                case 2: a.ModLine(Validaciones.ValidarEntero("Ingrese que producto modificara")); break;
-                case 3: a.DeleteID(Validaciones.ValidarEntero("Que producto desea eliminar?")); break;
+                case 1: a.RegistrarNotas(); break;
+                case 2: a.ModLine(Validaciones.ValidarEntero(1, max, "Ingrese que producto modificara")); break;
+                case 3: a.DeleteID(Validaciones.ValidarEntero(1, max, "Que producto desea eliminar?")); break;
             }
         }
     }

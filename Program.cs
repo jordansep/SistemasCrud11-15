@@ -16,11 +16,11 @@ namespace SistemasCrud10_15
         static void Main(string[] args)
         {
             Console.WriteLine("1) Registro de Usuarios Basico");
-            Console.WriteLine("2) Registro de Notas");
-            Console.WriteLine("3) Registro de Tareas");
-            Console.WriteLine("4) Registro de Productos");
+            Console.WriteLine("2) Registro de Tareas");
+            Console.WriteLine("3) Registro de inventario de productos");
+            Console.WriteLine("4) Registro de Asistencia");
             Console.WriteLine("5) Registro de Notas con Promedio");
-            int opciones = Validaciones.ValidarEntero("Elija una opcion");
+            int opciones = Validaciones.ValidarEntero(1,5,"Elija una opcion");
             switch (opciones)
             {
                 case 1: ejercicioOnce.Ejecutar();break;

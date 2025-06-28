@@ -85,6 +85,43 @@ namespace SistemasCrud10_15.Modulos
             }
             File.WriteAllLines(pathFile,lineas);
         }
+        // Modificacion de datos segun la linea elegida, precisamente enteros, en un rango determinado
+        // por ejemplo notas min = 1, max = 10, Modificara la linea en base a la nota.
+        public void ModLine(int min, int max, int lineToModify )
+        {
+            int cantDatos;
+            for (int i = 0; i < lineas.Length; i++)
+            {
+                string[] separateLine = lineas[i].Split(',');
+                int.TryParse(separateLine[0], out int foundID);
+                if (lineToModify == foundID)
+                {
+                    Console.WriteLine("Que dato desea modificar?");
+                    for (int j = 1; j < separateLine.Length; j++)
+                    {
+                        Console.WriteLine($"{j}) {separateLine[j]}");
+                    }
+                    int option = Validaciones.ValidarEntero("Ingrese una opcion");
+                    // Segun la opcion elegida, entrara a ese dato especificado y lo modificara
+                    while (option <= 0 || option > separateLine.Count())
+                    {
+                        Console.WriteLine($"Opción inválida. Debe estar entre 1 y {separateLine.Count() - 1}.");
+                        option = Validaciones.ValidarEntero("Ingrese una opción válida");
+                    }
+                    if (int.TryParse(separateLine[option], out int n))
+                    {
+                        int nota = Validaciones.ValidarEntero(min, max, "Ingrese el nuevo valor");
+                        separateLine[option] = nota.ToString();
+                    }
+                    else { separateLine[option] = Validaciones.ValidarTexto("Ingrese el nuevo valor"); }
+
+                }
+                lineas[i] = string.Join(",", separateLine);
+                cantDatos = separateLine.Length;
+            }
+            File.WriteAllLines(pathFile, lineas);
+        }
+
 
         // Elimina la linea seleccionada por el usuario en funcion de la ID.
         public void DeleteID(int lineToDelete, bool deleteOnFile = true)

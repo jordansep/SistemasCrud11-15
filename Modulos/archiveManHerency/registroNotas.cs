@@ -25,9 +25,9 @@ namespace SistemasCrud10_15.Modulos.archiveManHerency
         {
             id = UniqueID();
             name = Validaciones.ValidarTexto("Ingrese el nombre de usuario");
-            notaUno = Validaciones.ValidarEntero("Ingrese la primera nota");
-            notaDos = Validaciones.ValidarEntero("Ingrese la segunda nota");
-            notaTres = Validaciones.ValidarEntero("Ingrese la tercera nota");
+            notaUno = Validaciones.ValidarEntero(1,10,"Ingrese la primera nota");
+            notaDos = Validaciones.ValidarEntero(1,10,"Ingrese la segunda nota");
+            notaTres = Validaciones.ValidarEntero(1,10,"Ingrese la tercera nota");
             string registrar = string.Join(",", id, name, notaUno, notaDos, notaTres);
             listLines.Add(registrar);
             File.WriteAllLines(pathFile, listLines.ToArray());

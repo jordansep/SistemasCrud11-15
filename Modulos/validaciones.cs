@@ -37,6 +37,7 @@ namespace SistemasCrud10_15.Modulos
             }while (!esTexto);
             return respuesta;
         }
+
         public static string ValidarDirectorio(string msg = "Ingrese la ruta donde trabajaremos")
         {
             bool esTexto = false;
@@ -63,7 +64,9 @@ namespace SistemasCrud10_15.Modulos
             } while (!esTexto);
             return respuesta;
         }
-        public static int ValidarEntero(string msg = "Ingrese un entero")
+
+        // Valida numeros enteros.
+        public static int ValidarEntero( string msg = "Ingrese un entero")
         {
             bool esN = false;
             int numero = 0;
@@ -77,9 +80,9 @@ namespace SistemasCrud10_15.Modulos
                         throw new Exception("Ingrese un numero valido.");
                     esN = true;
                 }
-                catch (OverflowException)
+                catch (OverflowException e)
                 {
-                    Console.WriteLine("El numero ingresado es muy grande");
+                    Console.WriteLine(e.Message);
                 }
                 catch (Exception e)
                 {
@@ -88,5 +91,39 @@ namespace SistemasCrud10_15.Modulos
             } while (!esN);
             return numero;
         }
+
+        // Sobrescribir el metodo para que use uno acorde a lo necesario
+        // En caso de que validar entero solo necesite ser llamado y/o pasarle el string usa el metodo que contiene el parametro string
+        // En caso de querer agregar un rango entre dos numeros, llamara a el que contenga esos parametros extra
+        public static int ValidarEntero(int min, int max, string msg = "Ingrese un entero")
+        {
+            bool esN = false;
+            int numero = 0;
+            do
+            {
+                Console.Write(msg + ": ");
+                string n = Console.ReadLine();
+                try
+                {
+                    if (!int.TryParse(n, out numero))
+                        throw new Exception("Ingrese un numero valido.");
+                    // Extra: Si numero es menor que min o mayor que max, devolver un OverflowException.
+                    if (numero < min || numero > max)
+                        throw new OverflowException($"Ingrese un número entre {min} y {max} (inclusive).");
+
+                    esN = true;
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            } while (!esN);
+            return numero;
+        }
+        // TODO: Rango de enteros para seleccion de opciones.
     }
 }
