@@ -18,10 +18,13 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             registroAsistencia b = new registroAsistencia();
             archiveManipulation cargarBD = new archiveManipulation(true);
             b.ShowLines(Ruta.pathDB);
-            Console.WriteLine("1) Registrar Alumno");
-            Console.WriteLine($"2) Tomar asistencia del dia {DateTime.UtcNow.ToString("yyyy-MM-dd")}");
-            Console.WriteLine("3) Borrar alumno por ID");
+            Formato.Separador();
+            Formato.EscribirLinea("1) Registrar alumno nuevo");
+            Formato.EscribirLinea("2) Registrar asistencia de alumnos");
+            Formato.EscribirLinea("3) Borrar alumno por ID");
+            Formato.Separador();
             int opciones = Validaciones.ValidarEntero(1, 3,"Ingrese una opcion");
+            Formato.Separador();
             int max = archiveManipulation.getLines(Ruta.pathDB).Length;
             switch (opciones)
             {

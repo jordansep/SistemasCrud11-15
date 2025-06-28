@@ -16,12 +16,13 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Ruta.SetPathFile("Inventarioproductos", "csv");
             RegistroNotas a = new RegistroNotas();
             a.ShowLines(Ruta.pathFile);
-            Console.WriteLine("--------------------------------------------------");
-            Console.WriteLine("1) Agregar Producto");
-            Console.WriteLine("2) Modificar producto");
-            Console.WriteLine("3) Eliminar producto");
+            Formato.Separador();
+            Formato.EscribirLinea("1) Registrar producto nuevo");
+            Formato.EscribirLinea("2) Modificar producto");
+            Formato.EscribirLinea("3) Eliminar producto por ID");
+            Formato.Separador();
             int option = Validaciones.ValidarEntero("Ingrese una opcion");
-            Console.WriteLine("--------------------------------------------------");
+            Formato.Separador();
             int max = archiveManipulation.getLines(Ruta.pathFile).Length;
             switch (option)
             {

@@ -16,12 +16,13 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             Ruta.SetPathFile("usuarios", "txt");
             registroUsuarios b = new registroUsuarios();
             b.ShowLines(Ruta.pathFile);
-            Console.WriteLine("----------------------------------------------------");
-            Console.WriteLine("1) Registrar usuario");
-            Console.WriteLine("2) Actualizar/Modificar usuario");
-            Console.WriteLine("3) Eliminar usuario por ID");
+            Formato.Separador();
+            Formato.EscribirLinea("1) Registrar usuario nuevo");
+            Formato.EscribirLinea("2) Modificar usuario");
+            Formato.EscribirLinea("3) Eliminar usuario por ID");
+            Formato.Separador();
             int opciones = Validaciones.ValidarEntero(1,3,"Ingrese una opcion");
-            Console.WriteLine("----------------------------------------------------");
+            Formato.Separador();
             int max = archiveManipulation.getLines(Ruta.pathFile).Length;
             switch (opciones)
             {

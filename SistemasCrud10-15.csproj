@@ -54,6 +54,7 @@
     <Compile Include="Modulos\archiveManHerency\RegistroNotas.cs" />
     <Compile Include="Modulos\archiveManHerency\registroUsuarios.cs" />
     <Compile Include="Modulos\archiveManipulation.cs" />
+    <Compile Include="Modulos\Formato.cs" />
     <Compile Include="Modulos\path.cs" />
     <Compile Include="Modulos\validaciones.cs" />
     <Compile Include="Program.cs" />
