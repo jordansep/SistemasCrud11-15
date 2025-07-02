@@ -5,10 +5,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using SistemasCrud10_15.Ejercicios;
 
 namespace SistemasCrud10_15.Modulos.archiveManHerency
 {
-    class registroUsuarios:archiveManipulation
+    class registroUsuarios:archiveManipulation, IRegistros
     {
         private static string nombre;
         private static string email;
@@ -21,7 +22,7 @@ namespace SistemasCrud10_15.Modulos.archiveManHerency
             edad = 0;
             contraseña = "1";
         }
-        public void registrarUsuario()
+        public void AddRegister()
 
         {
             id = UniqueID();

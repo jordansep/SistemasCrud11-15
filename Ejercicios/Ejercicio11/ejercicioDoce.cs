@@ -26,7 +26,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             int max = archiveManipulation.getLines(Ruta.pathFile).Length;
             switch (opciones)
             {
-                case 1: b.agregarTarea(); break;
+                case 1: b.AddRegister(); break;
                 case 2: b.ModificarEstado(Validaciones.ValidarEntero(1, max, "A que tarea desea cambiarle el estado de completitud?")); break;
                 case 3: b.DeleteID(Validaciones.ValidarEntero(1,max,"Que tarea desea eliminar?")); break;
             }

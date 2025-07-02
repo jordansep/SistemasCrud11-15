@@ -27,7 +27,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             int max = archiveManipulation.getLines(Ruta.pathFile).Length;
             switch (opciones)
             {
-                case 1: b.registrarUsuario(); break;
+                case 1: b.AddRegister(); break;
                 case 2: b.Loggin(); break;
                 case 3: b.ModLine(Validaciones.ValidarEntero(1, max, "Que usuario desea modificar?")); break;
                 case 4: b.DeleteID(Validaciones.ValidarEntero(1, max, "Que usuario desea eliminar?")); break;

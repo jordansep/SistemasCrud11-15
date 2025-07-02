@@ -30,7 +30,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             {
                 case 1:
                     Ruta.SetPathFile("Alumnos", "txt");
-                    b.registrarAlumno();
+                    b.AddRegister();
                     break;
                 case 2: b.registrarAsistencia(); break;
                 case 3: b.DeleteID(Validaciones.ValidarEntero(1,max,"Que alumno desea eliminar?"),false); break;

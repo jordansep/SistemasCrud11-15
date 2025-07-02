@@ -14,7 +14,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
         {
             Ruta.SetPathFolder("Inventario Productos");
             Ruta.SetPathFile("Inventarioproductos", "csv");
-            RegistroNotas a = new RegistroNotas();
+            InventarioProductos a = new InventarioProductos();
             a.ShowLines(Ruta.pathFile);
             Formato.Separador();
             Formato.EscribirLinea("1) Registrar producto nuevo");
@@ -26,7 +26,7 @@ namespace SistemasCrud10_15.Ejercicios.Ejercicio11
             int max = archiveManipulation.getLines(Ruta.pathFile).Length;
             switch (option)
             {
-                case 1: a.RegistrarNotas(); break;
+                case 1: a.AddRegister(); break;
                 case 2: a.ModLine(Validaciones.ValidarEntero(1, max, "Ingrese que producto modificara")); break;
                 case 3: a.DeleteID(Validaciones.ValidarEntero(1, max, "Que producto desea eliminar?")); break;
             }

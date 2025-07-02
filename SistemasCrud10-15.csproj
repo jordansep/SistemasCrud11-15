@@ -48,6 +48,7 @@
     <Compile Include="Ejercicios\Ejercicio11\ejercicioOnce.cs" />
     <Compile Include="Ejercicios\Ejercicio11\ejercicioQuince.cs" />
     <Compile Include="Ejercicios\Ejercicio11\ejercicioTrece.cs" />
+    <Compile Include="Modulos\Interfaz.cs" />
     <Compile Include="Modulos\archiveManHerency\InventarioProductos.cs" />
     <Compile Include="Modulos\archiveManHerency\listaTareas.cs" />
     <Compile Include="Modulos\archiveManHerency\registroAsistencia.cs" />

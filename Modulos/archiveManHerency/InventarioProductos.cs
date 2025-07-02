@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using SistemasCrud10_15.Ejercicios;
 
 namespace SistemasCrud10_15.Modulos.archiveManHerency
 {
-    class InventarioProductos: archiveManipulation
+    class InventarioProductos: archiveManipulation, IRegistros
     {
         protected static string name;
         protected static int price;
@@ -18,7 +19,7 @@ namespace SistemasCrud10_15.Modulos.archiveManHerency
             price = 0;
             stock = 0;
         }
-        public static void agregarProducto()
+        public void AddRegister()
         {
             id = UniqueID();
             name = Validaciones.ValidarTexto("Ingrese el nombre del producto");

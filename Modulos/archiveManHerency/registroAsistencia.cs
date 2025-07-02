@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using SistemasCrud10_15.Ejercicios;
 
 namespace SistemasCrud10_15.Modulos.archiveManHerency
 {
-    class registroAsistencia : archiveManipulation
+    class registroAsistencia : archiveManipulation, IRegistros
     {
         protected static string pathBD = Ruta.setPathBD("Alumnos", "txt");
         private string name;
@@ -17,7 +18,7 @@ namespace SistemasCrud10_15.Modulos.archiveManHerency
             state = "Presente";
         }
 
-        public void registrarAlumno()
+        public void AddRegister()
         {
             listLines = File.Exists(pathBD) ? File.ReadAllLines(pathBD).ToList() : new List<string>();
             id = UniqueID();

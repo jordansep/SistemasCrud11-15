@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using SistemasCrud10_15.Ejercicios;
 
 namespace SistemasCrud10_15.Modulos.archiveManHerency
 {
-    class listaTareas : archiveManipulation
+    class listaTareas : archiveManipulation, IRegistros
     {
         private static string descripcion;
         private static string estado;
@@ -16,7 +17,7 @@ namespace SistemasCrud10_15.Modulos.archiveManHerency
             descripcion = string.Empty;
             estado = string.Empty;
         }
-        public void agregarTarea()
+        public void AddRegister()
         {
             id = UniqueID();
             descripcion = Validaciones.ValidarTexto("Ingrese una tarea.");

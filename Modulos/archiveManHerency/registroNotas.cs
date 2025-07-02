@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.IO;
+using SistemasCrud10_15.Ejercicios;
 
 namespace SistemasCrud10_15.Modulos.archiveManHerency
 {
-    class RegistroNotas :archiveManipulation
+    class RegistroNotas :archiveManipulation, IRegistros
     {
         private string name;
         private int notaUno;
@@ -21,7 +22,7 @@ namespace SistemasCrud10_15.Modulos.archiveManHerency
             notaDos = 1;
             notaTres = 1;
         }
-        public void RegistrarNotas()
+        public void AddRegister()
         {
             id = UniqueID();
             name = Validaciones.ValidarTexto("Ingrese el nombre de usuario");
